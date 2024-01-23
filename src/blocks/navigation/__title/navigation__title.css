@@ -1,0 +1,34 @@
+.navigation__title {
+  display: flex;
+  margin-bottom: 10px;
+  position: relative;
+  cursor: pointer;
+  transition: opacity .2s linear ;
+}
+.navigation__title:hover {
+  opacity: 0.8;
+}
+
+.navigation__title:last-child {
+  margin-bottom: 0;
+}
+
+.navigation__title::before {
+  content: '';
+  background-image: url(../../../image/бключ.png);
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 2px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+@media screen and (max-width: 600px) {
+  .navigation__title::before {
+    width: 15px;
+    height: 15px;
+  }
+}

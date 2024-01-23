@@ -1,0 +1,12 @@
+.header-department {
+  color: white;
+  font-weight: 600;
+  text-align: center;
+  margin: 10px auto 0px;
+}
+
+@media screen and (max-width: 640px) {
+    .header-department {
+      font-size: 100%;
+    }
+  }

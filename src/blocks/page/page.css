@@ -1,0 +1,11 @@
+.page {
+  min-width: 320px;
+  max-width: 1280px;
+  margin: 0 auto;
+  background-color: #000000;
+  position: relative;
+  padding: 5px;
+  font-family: 'Unbounded', Arial, Helvetica, sans-serif;
+  opacity: 0.9;
+  min-height: 100vh;
+}

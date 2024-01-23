@@ -1,0 +1,13 @@
+.footer__user-name {
+  color: rgb(145, 150, 154);
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0px 0px 0px 5px;
+  padding: 0px 0px 0px 5px;
+}
+
+@media screen and (max-width: 600px) {
+  .footer__user-name {
+    font-size: 100%;
+  }
+}
