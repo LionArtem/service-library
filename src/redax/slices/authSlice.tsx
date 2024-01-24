@@ -2,7 +2,23 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { auth } from '../../utils/Auth';
 
-export const fetchAddUser = createAsyncThunk(
+type User = {
+  admin: boolean;
+  email: string;
+  name: string;
+  positionWork: string;
+  __v: number;
+  _id: string;
+};
+
+type UserAddProps = {
+  email: string;
+  password: string;
+  name: string;
+  positionWork: string;
+};
+
+export const fetchAddUser = createAsyncThunk<User, UserAddProps>(
   'page/fetchAddUser',
   async (params, thunkAPI) => {
     const { email, password, name, positionWork } = params;
@@ -84,9 +100,6 @@ const authSlice = createSlice({
 
 export const selectAuth = (state) => state.auth;
 
-export const {
-  killAllStateAuth,
-  resetTextArrAnswerServer,
-  resetForm,
-} = authSlice.actions;
+export const { killAllStateAuth, resetTextArrAnswerServer, resetForm } =
+  authSlice.actions;
 export default authSlice.reducer;
