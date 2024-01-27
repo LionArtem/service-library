@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { departmentApi } from '../../utils/DepartmentApi';
 import { notAuthRequest } from '../../utils/NotAuthRequest';
 
-import { Department } from '../types';
+import { Department, Group, AddEquipmentProps } from '../types';
 
 export const fetchAddNewDepartment = createAsyncThunk<Department, string>(
   'page/fetchAddNewDepartment',
@@ -13,29 +13,29 @@ export const fetchAddNewDepartment = createAsyncThunk<Department, string>(
   }
 );
 
-export const fetchGetAllDepartment = createAsyncThunk(
+export const fetchGetAllDepartment = createAsyncThunk<Department[]>(
   'page/fetchGetAllDepartment',
-  async (params) => {
+  async () => {
     const data = await notAuthRequest.getAllDepartment();
     return data;
   }
 );
 
-export const fetchGetDepartmentId = createAsyncThunk(
+export const fetchGetDepartmentId = createAsyncThunk<Department, string>(
   'page/fetchGetDepartmentId',
-  async (params, thunkAPI) => {
+  async (params) => {
     const data = await notAuthRequest.getDepartmentId(params);
     return data;
   }
 );
 
-export const fetchAddEquipmentDepartment = createAsyncThunk(
-  'page/fetchAddEquipmentDepartment',
-  async (params, thunkAPI) => {
-    const data = await departmentApi.addEquipmentDepartment(params);
-    return data;
-  }
-);
+export const fetchAddEquipmentDepartment = createAsyncThunk<
+  Group[],
+  AddEquipmentProps
+>('page/fetchAddEquipmentDepartment', async (params) => {
+  const data = await departmentApi.addEquipmentDepartment(params);
+  return data;
+});
 
 export const fetchAddEquipmentInGroup = createAsyncThunk(
   'page/fetchAddEquipmentInGroup',
