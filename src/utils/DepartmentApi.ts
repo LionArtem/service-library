@@ -1,4 +1,4 @@
-import { PORT } from '../utils/constants';
+import { PORT } from './constants';
 
 class DepartmentApi {
   constructor({ baseUrl, headers }) {
@@ -6,7 +6,7 @@ class DepartmentApi {
     this.headers = headers;
   }
 
-  addNewDepartment(titleDepartment) {
+  addNewDepartment(titleDepartment:string) {
     return fetch(this.baseUrl, {
       method: 'POST',
       headers: this.headers,

@@ -3,9 +3,11 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { departmentApi } from '../../utils/DepartmentApi';
 import { notAuthRequest } from '../../utils/NotAuthRequest';
 
-export const fetchAddNewDepartment = createAsyncThunk(
+import { Department } from '../types';
+
+export const fetchAddNewDepartment = createAsyncThunk<Department, string>(
   'page/fetchAddNewDepartment',
-  async (params, thunkAPI) => {
+  async (params) => {
     const data = await departmentApi.addNewDepartment(params);
     return data;
   }
@@ -13,7 +15,7 @@ export const fetchAddNewDepartment = createAsyncThunk(
 
 export const fetchGetAllDepartment = createAsyncThunk(
   'page/fetchGetAllDepartment',
-  async (params, thunkAPI) => {
+  async (params) => {
     const data = await notAuthRequest.getAllDepartment();
     return data;
   }
